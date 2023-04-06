@@ -6,8 +6,10 @@ function App() {
   const [nameList, setNameList] = useState([]);
 
   useEffect(() => {
-    axios.get("https://pokeapi.co/api/v2/pokemon/ditto");
-  });
+    axios.get("https://pokeapi.co/api/v2/pokemon?limit=50").then((response) => {
+      setNameList(response.data.results);
+    });
+  }, []);
 
   return (
     <div className="App">
