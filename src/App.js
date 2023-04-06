@@ -20,9 +20,17 @@ function App() {
         placeholder="Search your Pokemon"
         onChange={(e) => setSearch(e.target.value)}
       />
-      {nameList.map((item) => {
-        return <h4>{item.name}</h4>;
-      })}
+      {nameList
+        .filter((item) => {
+          if (search === "") {
+            return item;
+          } else if (item.name.toLowerCase().includes(search.toLowerCase())) {
+            return item;
+          }
+        })
+        .map((item) => {
+          return <h4>{item.name}</h4>;
+        })}
     </div>
   );
 }
