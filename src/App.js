@@ -14,6 +14,10 @@ function App() {
   return (
     <div className="App">
       <h1>Api Fetching</h1>
+      <input type="text" placeholder="Search your Pokemon" />
+      {nameList.map((item) => {
+        return <h4>{item.name}</h4>;
+      })}
     </div>
   );
 }
