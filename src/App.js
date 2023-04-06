@@ -4,6 +4,7 @@ import "./App.css";
 
 function App() {
   const [nameList, setNameList] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     axios.get("https://pokeapi.co/api/v2/pokemon?limit=50").then((response) => {
@@ -14,7 +15,11 @@ function App() {
   return (
     <div className="App">
       <h1>Api Fetching</h1>
-      <input type="text" placeholder="Search your Pokemon" />
+      <input
+        type="text"
+        placeholder="Search your Pokemon"
+        onChange={(e) => setSearch(e.target.value)}
+      />
       {nameList.map((item) => {
         return <h4>{item.name}</h4>;
       })}
