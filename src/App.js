@@ -27,6 +27,7 @@ function App() {
           } else if (item.name.toLowerCase().includes(search.toLowerCase())) {
             return item;
           }
+          return null;
         })
         .map((item) => {
           return <h4>{item.name}</h4>;
